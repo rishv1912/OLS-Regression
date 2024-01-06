@@ -15,7 +15,7 @@ def bin_to_num(data):
         i = list(i)
 
         binnedinc.append(i)
-    data["bineedic"] = binnedic
+    data["binnedic"] = binnedic
 
     data["lower_bound"] = [i[0] for i in data["binnedic"]]
     data["upper_bound"] = [i[1] for i in data["binnedic"]]
