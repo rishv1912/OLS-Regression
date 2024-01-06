@@ -3,8 +3,8 @@ from sklearn.preprocessing import OneHotEncoder
 
 def bin_to_num(data):
     binnedinc = []
-    for i in data['binnedic']:
-        i = i.strip["()[]"]
+    for i in data['binnedinc']:
+        i = i.strip("()[]")
         print(i)
         i = i.split(",")
 
@@ -15,7 +15,7 @@ def bin_to_num(data):
         i = list(i)
 
         binnedinc.append(i)
-    data["binnedic"] = binnedic
+    data["binnedic"] = binnedinc
 
     data["lower_bound"] = [i[0] for i in data["binnedic"]]
     data["upper_bound"] = [i[1] for i in data["binnedic"]]

@@ -17,7 +17,7 @@ def correlation_among_numeric_features(df,cols):
         for j in range(i):
             if abs(corr.iloc[i,j]) > 0.8:
                 colname = corr.columns[i]
-                corr_features.add(columns)
+                corr_features.add(colname)
     return corr_features
 
 
@@ -42,7 +42,7 @@ if __name__ == "__main__":
     corr_features = correlation_among_numeric_features(capped_data,capped_data.columns)
     print(corr_features)
 
-    highy_corr_cols = [
+    highly_corr_cols = [
         "povertypercent",
         "median",
         "pctprivatecoveragealone",

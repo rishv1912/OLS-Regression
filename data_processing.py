@@ -16,7 +16,7 @@ def delete_constant_columns(dataframe,columns_to_delete):
 def find_columns_with_few_values(dataframe,threshold):
     few_values_columns = []
     for column in dataframe.columns:
-        unique_values_count = len(dataframe[column].unique)
+        unique_values_count = len(dataframe[column].unique())
         if unique_values_count < threshold:
             few_values_columns.append(column)
     return few_values_columns
