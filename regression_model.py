@@ -30,3 +30,47 @@ def lr_model(x_train,y_train):
 def identify_significant_vars(lr,p_value_threshold=0.05):
     print(lr.values)
     print(lr.rsquared) 
+    print(lr.rsquared_adj)
+
+    significant_var = [var for var in lr.pvalues.key() if lr.pvalues[var] < p_value_threshold]
+    return significant_var
+
+
+if __name__ == "__main__":
+    capped_data = pd.read_csv("ols-regression-challenge-data/capped_data.csv")
+
+    corr_features = correlation_among_numeric_features(capped_data,capped_data.columns)
+    print(corr_features)
+
+    highy_corr_cols = [
+        "povertypercent",
+        "median",
+        "pctprivatecoveragealone",
+        "medianagefemale",
+        "pctempprivcoverage",
+        "pctblack",
+        "popest2015",
+        "pctmarriedhouseholds",
+        "upper_bound",
+        "lower_bound",
+        "pctprivatecoverage",
+        "medianagemale",
+        "state_ District of Columbia",
+        "pctpubliccoveragealone",
+    ]
+
+    cols = [col for col in capped_data.columns if col not in highly_corr_cols]
+    len(cols)
+
+    x_train,x_test,y_train,y_test = split_data(capped_data[cols], "target_deathrate")
+    lr = lr_model(x_train,y_train)
+    summary = lr.summary()
+    print(summary)
+
+    significant_vars = identify_significant_vars(lr)
+    print(len(significant_vars))
+
+    significant_vars.remove("const")
+    lr = lr_model(x_train[significant_vars],y_train)
+    summary = lr.summary()
+
