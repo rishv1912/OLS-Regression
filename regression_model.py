@@ -4,7 +4,7 @@ warnings.filterwarnings("ignore")
 
 import matplotlib.pyplot as plt
 import pandas as pd
-import statsmodel.api as sm
+import statsmodels.api as sm
 
 from data_processing import split_data
 
@@ -28,7 +28,7 @@ def lr_model(x_train,y_train):
     return lr
 
 def identify_significant_vars(lr,p_value_threshold=0.05):
-    print(lr.values)
+    print(lr.pvalues)
     print(lr.rsquared) 
     print(lr.rsquared_adj)
 
