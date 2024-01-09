@@ -5,7 +5,7 @@ def find_constant_columns(dataframe):
     constant_columns = []
     for column in dataframe.columns:
         unique_values = dataframe[column].unique()
-        if len(unique_values) ==1 :
+        if len(unique_values) == 1 :
             constant_columns.append(column)
     return constant_columns
 
