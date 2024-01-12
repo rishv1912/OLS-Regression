@@ -1,6 +1,8 @@
 import pandas as pd
+from zenml.pipelines import pipeline
+from zenml.steps import step
 
-
+@step
 class IngestData:
     def __init__(self) -> None:
         self.data_path = None
