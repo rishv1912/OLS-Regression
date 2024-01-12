@@ -1,2 +1,2 @@
-from sklearn.metrics import mean_squared_error as MSE
-from sklearn.metrics import mean_absolute_error as MAE
+from sklearn.metrics import mean_squared_error as MSE, mean_absolute_error as MAE, RMSE
+from regression_model import *
